@@ -1,0 +1,57 @@
+\documentclass[10pt]{article}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{times}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{graphicx}
+
+\titleformat{\section}{\normalfont\bfseries\filcenter}{\thesection. }{0.8em}{}
+\titlespacing*{\section}{0pt}{2.0ex}{-1ex}
+
+\titleformat{\subsection}{\normalfont\bfseries}{\thesubsection. }{0em}{}
+\titlespacing*{\subsection}{0pt}{2.0ex}{-1ex}
+
+\titleformat{\subsubsection}{\normalfont\it}{\thesubsubsection. }{1.0em}{}
+\titlespacing*{\subsubsection}{0pt}{2.0ex}{-1ex}
+
+\geometry{
+  a4paper,
+  total={165mm,226mm},
+  left=20mm,
+  right=20mm,
+  top=24.5mm,
+  textwidth=165mm,
+  textheight=235mm
+}
+
+\linespread{1.85}
+
+\begin{document}
+
+\noindent \textbf{ABSTRACT:} TODO!
+
+\section{Introduction}
+A solid understanding of Data Structures and Algorithms (DSA) is an important skill for any student in the field of Computer Science, since they underpin many of the fundamentals of Computer Science. However, as is the case with many conceptually demanding topics, students can find learning DSA challenging early on in their studies\cite{7600449} due to their inability to correlate DSA concepts with real-world objects and problems.\par
+Educational tools have often been proposed that either take advantage of Game-based Learning (GBL) or Algorithm Visualisation (AV) in order to help students better learn concepts in computer science.\par
+Game-based Learning is the use of games with traditional game elements (such as level progression or animation) in order to teach or practice a particular topic\cite{GBLTeaching}. We find that GBL is been quite commonly used in the some fields of computer science, especially programming, however there are currently few examples of games that directly teach basic DSA. Those games that do exist to teach DSA usually revolve around more advanced DSA theory, such as algorithmic complexity. While learning those concepts are also important, there is a lack of games that help students learn about the practical application of DSA to computer science problems.
+
+\begingroup
+
+  \section*{References}
+  \vspace{2mm}
+
+  % Delete the references header
+  \renewcommand{\section}[2]{}
+
+  % Reduce spacing
+  \begin{spacing}{1.0}
+
+    \bibliographystyle{IEEEtran}
+    \small
+    \bibliography{references}
+
+  \end{spacing}
+
+\endgroup
+\end{document}
