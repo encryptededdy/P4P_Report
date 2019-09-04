@@ -52,14 +52,27 @@ Despite a large volume of existing work on both Game Based Learning and Algorith
 Most tools that teach basic DSA usually don't cover some intricacies of working with them, which can result in students being confused on concepts that might otherwise be regarded as basic. Izu, et al.\cite{izuloop} presents an example of students struggling with array manipulation and loop iterations where students are unable to recognise which direction they should loop in, in order to shift an array to the left or right. They conclude that this is the result of an unintentional oversight in course materials favouring upward loops.\par
 Meanwhile, there has also been research into correlations between students ability to explain and trace code and their abilities to write code. Teague and Corney's work\cite{Teague:2012:SHW:2483716.2483727} presents a study of such a relationship where the ability of students to explain a simple code block that swaps two elements is correlated with their ability to explain a simple sorting algorithm that relies on swapping out-of-order elements (similar to BubbleSort).
 \section{Goals}
-From our literature review, we were able to identify multiple pieces of existing work that we would like to integrate into DeCode.
+In general, we had three broad goals during the development of DeCode;
+\begin{enumerate}
+  \item Teach introductory DSA concepts
+  \item Be an engaging tool for the user
+  \item Offer a highly visually-appealing visualisation
+\end{enumerate}
+Additionally, from our literature review, we were also able to identify ideas from multiple pieces of existing work that we would like to integrate into DeCode.
 \begin{itemize}
   \item An \emph{interactive} algorithm visualisation with explanations, since they've been shown to be more useful to students\cite{vegh2}.
   \item Ask students DSA questions, and allow them to answer them by manipulating the visualisation, such as in TRAKLA2\cite{TRAKLA2}.
   \item Use a game environment, with game objects as real-world analogies to better demonstrate DSes, such as in Park and Ahmed\cite{Park}.
   \item Log students interactions with the tool, to allow educators to better understand student's line of thought, similar to Vegh\cite{vegh}.
-  \item 
+  \item Explicitly introduce loop directions and array shifting, since Izu, et al\cite{izuloop} showed that students are commonly confused by this.
+  \item Measure students abilities to explain and trace code instead of just their performance in performing DS operations, in order to see if we can reproduce the relationships between the two that Teague and Corney demonstrated in their work\cite{Teague:2012:SHW:2483716.2483727}. 
 \end{itemize}
+\section{Analogy/Metaphor}
+Using an analogy in our visualisation can allow us to make DeCode more visually appealing, while also improving educational value\cite{Park}\cite{vegh2}. However, coming up with an analogy that works for all of our use cases proved to be quite difficult - if something cannot be adequately explained using your analogy, then it quickly falls apart. The analogy should also be relatable for almost all users of the application and not be overly complex. Eventually, we settled on the idea of cars and carparks as our analogy.\par
+Cars would represent the values that we would want to store in our data structure, with different types/colours of cars representing different data values that we would like to store. Parking spaces represent locations in memory where these values can be stored, and contigious blocks of memory (such as arrays) are represented as carparks. To store a value into a memory location, we use the analogy of parking a car into a parking space. The parking spaces are labelled with their index where appropriate.
+\subsection{Limitations}
+One of our primary goals with this analogy was to have minimal complexity, which meant keeping it to only two main elements (cars and parks). Unfortunately, this meant that there were a few things that ended up being inadequately explained by our analogy.\\
+Firstly, the user is able to view the contents of the whole carpark at a time, whereas in reality it takes time to check the contents of each memory location. This made some algorithms such as sorting algorithms more awkward to explain since in reality comparing various indexes makes up a significant portion of the running time of such algorithms. Initially 
 
 \begingroup
 
