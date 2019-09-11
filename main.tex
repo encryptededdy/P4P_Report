@@ -75,18 +75,33 @@ Additionally, from our literature review, we were also able to identify ideas fr
   \item Measure students abilities to explain and trace code instead of just their performance in performing DS operations, in order to see if we can reproduce the relationships between the two that Teague and Corney demonstrated in their work\cite{Teague:2012:SHW:2483716.2483727}. 
 \end{itemize}
 \section{Analogy/Metaphor}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.75\textwidth]{images/helpanalogy.png}
+\caption{Help screen explaining our analogy}
+\label{fig:helpanalogy}
+\end{figure}
 Using an analogy in our visualisation can allow us to make DeCode more visually appealing, while also improving educational value\cite{Park}\cite{vegh2}. However, coming up with an analogy that works for all of our use cases proved to be quite difficult - if something cannot be adequately explained using your analogy, then it quickly falls apart. The analogy should also be relatable for almost all users of the application and not be overly complex. Eventually, we settled on the idea of cars and carparks as our analogy.\par
 Cars would represent the values that we would want to store in our data structure, with different types/colours of cars representing different data values that we would like to store. Parking spaces represent locations in memory where these values can be stored, and contiguous blocks of memory (such as arrays) are represented as carparks. To store a value into a memory location, we use the analogy of parking a car into a parking space. The parking spaces are labelled with their index where appropriate.\par
-To help users get better accustomed to our analogy, we show a help screen at the start that links the analogy to a more classic box-and-line diagram visualisation of data structures.
-% TODO: Figure
+To help users get better accustomed to our analogy, we show a help screen (Figure \ref{fig:helpanalogy})at the start that links the analogy to a more classic box-and-line diagram visualisation of data structures.
 \subsection{Limitations}
 One of our primary goals with this analogy was to have minimal complexity, which meant keeping it to only two main elements (cars and parks). Unfortunately, this meant that there were a few things that ended up being inadequately explained by our analogy.\par
 Firstly, the user is able to view the contents of the whole carpark at a time, whereas in reality it takes time to check the contents of each memory location. This made some algorithms such as sorting algorithms more awkward to explain since in reality comparing various indexes makes up a significant portion of the running time of such algorithms. Initially we intended to add some sort of character to the game (such as a driver) to represent the current state of execution - so, as an example, the driver would walk around the carpark and look at cars in order determine their value, then get in one and drive it when array elements are being moved/copied. However, we found that this overly complicated the visualisation, and actually made it harder for users to keep track of what's going on. We therefore decided to go without this, even if it did mean our analogy was less accurate.\par
 The second issue was trying to display pointers with our analogy - we simply couldn't come up with something that would fit well that represented a pointer without being overly complex. Signs and other things pointing to a specific parking spot (memory location) would be too complex for students to grasp. Ultimately, we decided to omit most data structures that use pointers, such as Linked Lists since we would be unable to represent them satisfactorily. The only DS that had a pointer was our optimized implementation of Queue, for which we used a red flag to mark the parking space pointed to by a pointer. This only worked since we only had one pointer (having multiple, different coloured flags would be confusing for something like a Linked List).\par
 The final issue that we identified was how we would deal with copying of values in the data structure. For example, copying the value from index 0 to index 1 in an array would mean \emph{duplicating} the car that stores the value in index 0 and driving it to index 1, while leaving the original in index 0. This breaks the analogy's link to the real world since one cannot simply duplicate a car in reality. In the end we kept this in the game since we were unable to come up with a way to represent this more realistically. Even if this one part isn't realistic, we feel students will still be able to understand the intent of the analogy.
-\section{Design}
+\section{Design and Technology}
+\subsection{Design}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{images/seasons.png}
+\caption{4 seasons for the 4 levels in DeCode}
+\label{fig:seasons}
+\end{figure}
 One of the main goals of DeCode was to design a highly visually appealing visualisations, in order to draw users in and differentiate our visualisation from other, more standard, 2D visualisations. One of the best ways to achieve a high quality visualisation would be to use custom 3D models for our analogies, however we this would've been impractical given the time constraints we were under. Instead, we elected to use existing city assets from Kenney's Isometric City Pack\cite{KenneyAssets}. This asset pack offered most of the assets that we needed for our analogy (city buildings, streets, parking spaces and cars) with a consistent design across them. The assets that weren't available (such as labelled trucks for sorting and indexed parking spaces) were created manually by us, with care taken to ensure they match the design of the Kenney pack.\par
+To visually separate each of the 4 data structures we were introducing, each data structure has its own seasonal themed variation on the normal assets. Figure \ref{fig:seasons} shows the design of DeCode across all four seasons (data structures).\par
 UI design was also done by us, with the goal of trying to match the design of the Kenney pack as much as possible. A primary consideration in our UI design was to ensure all UI elements would be usable on a touch device, should a user choose to test our game on such a device. This meant things like array index selection would need to be designed as drop down boxes instead of text boxes, since popping up a keyboard results in a poor touch experience. We also made sure that all buttons were of sufficient size for touch interaction.
+\subsection{Technology}
+% TODO!
 \section{Data Structures}
 We chose 4 data structures to cover in our tool based on their importance in the ACM CS2013 curriculum's section on Fundamental Data Structures\cite{CS2013} and our ability to visualise it using our analogy. As mentioned earlier, we opted to skip data structures that require significant use of pointers since we are unable to represent them using our analogy.
 \subsection{Arrays}
@@ -95,9 +110,33 @@ Arrays are depicted as a simple carpark of a fixed size, with an extra park repr
 ArrayLists (also known as Vectors in some languages) are introduced in two parts - first, we expose the user to the benefits of a List - namely, dynamic sizing that allows us to add as many elements as we see fit. The user is asked to add elements to the ArrayList, and the internal array is shown as expanding every time a new element is added. This is visualised by having multiple rows of parking spaces next to each other (see Figure TODO), with each row 1 larger than the last. When a new element is added that exceeds the size of the current row, all the cars are moved to the next one, thus representing a possible naïve implementation of ArrayList. Throughout this process, the user is asked questions on how the performance of this implementation could be improved, in order to get them thinking about the next part.\par
 In the second part, we introduce a more optimized implementation of ArrayList to the user, in order to give them an idea of how ArrayLists are used in the real world. This done using the same array expanding visualisation as before, except we now show how the implementation doubles the size of the internal array each time.
 \subsection{Queues}
-Since Queues are an abstract data type (ADT), we elected to show it in two parts - first, we show the user the interface of such an ADT, where the implementation is a ``black box'' and the user can only perform enqueue and dequeue operations on said box.
+% TODO: probably two figures
+Since Queues are an abstract data type (ADT), we elected to show it in two parts - first, we show the user the interface of such an ADT, where the implementation is a ``black box'' and the user can only perform enqueue and dequeue operations on said box. We visualise this as a parking garage with one entrance (for enqueues) and one exit (for dequeues). After the user is familiar with these operations, we allow the user to ``see inside'' the parking garage, thus revealing the implementation to them. Similar to ArrayLists, we first introduce them to a naïve implementation of a Queue (basic array), then proceed to introduce a circular array implementation, where we use a pointer (red flag) to arbitrarily define the start of the array.
 \subsection{Stacks}
-\section{Gameplay Features}
+Stacks, being another ADT, are also introduced in a similar way to Queues - first a ``black box'' view where the user can only use the single entrance for push/pop, and then later a ``see inside'' view where the array-based implementation is revealed to the player.
+\section{Gameplay Features / User Interface}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.75\textwidth]{images/annotatedelements.png}
+\caption{Annotated view of the gameplay features}
+\label{fig:annotatedelements}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.48\textwidth]{images/help.png}
+  \includegraphics[width=0.48\textwidth]{images/quiz.png}
+\caption{The help and quiz pop-up screens}
+\label{fig:helpquiz}
+\end{figure}
+The majority of the game has a interface similar to that shown in Figure \ref{fig:annotatedelements}. The annotated elements do the following\dots
+\begin{enumerate}
+  \item Shows the user their current game ID, used to track their progress for the evaluation (more in the Evaluation section).
+  \item The code view allows the user to see a pseudocode representation of the operations that they have done, so that they can better relate the visualisation with code.
+  \item Tasks for the user are introduced here. Users are able to \emph{check} if their answer is correct, or \emph{reset} in order to start again.
+  \item Operations supported by the current data structure are shown here, and users can select the index(es) to perform the given operation on. Generally, not all operations are shown at once since they are gradually introduced to the user
+  \item The visualisation is shown in the centre of the screen. When the task is introducing something to the user, the visualisation automatically zooms in to focus on what's being shown.
+\end{enumerate}
+In addition to these elements, DeCode also shows help screens that give users a general introduction to a given data structure, and has quiz screens to ask users specific multi-choice questions, both of which are shown in Figure \ref{fig:helpquiz}.
 \section{Evaluation}
 \subsection{Design}
 \subsection{Results}
