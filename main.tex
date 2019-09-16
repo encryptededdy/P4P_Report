@@ -5,6 +5,7 @@
 \usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage{graphicx}
+\usepackage{tabulary}
 
 \titleformat{\section}{\normalfont\bfseries\filcenter}{\thesection. }{0.8em}{}
 \titlespacing*{\section}{0pt}{2.0ex}{-1ex}
@@ -167,14 +168,49 @@ The primary objective of the questionnaire is to collect data on user's experien
 In the end, our questionnaire was based around a subset of MEEGA, with most of the questions pertaining to how the students felt about the user experience, and some questions about specific features in the game to gauge their individual usefulness (e.g. the code view or the MCQs).
 % TODO: Unfinished!
 \subsection{Results and Discussion}
+\begin{table}[]
+  \begin{tabulary}{\linewidth}{|L|C|C|C|C|C|}
+  \hline
+  \textbf{Question}                                                                                                  & \textbf{Strongly Agree} & \textbf{Somewhat Agree} & \textbf{Neither} & \textbf{Somewhat Disagree} & \textbf{Strongly Disagree} \\ \hline
+  The app was effective in communicating Data Structure concepts                                                     & 53\%                    & 27\%                    & 16\%             & 0\%                        & 3\%                        \\ \hline
+  I found visualization to be a better approach to learning Data Structures compared to a purely code-based approach & 53\%                    & 17\%                    & 17\%             & 3\%                        & 10\%                       \\ \hline
+  Overall, I enjoyed using DeCode as a learning tool                                                                 & 47\%                    & 30\%                    & 10\%             & 10\%                       & 3\%                        \\ \hline
+  \end{tabulary}
+  \caption{Questionnaire questions around enjoyment}
+  \label{tab:enjoytable}
+\end{table}
 With human ethics and HoD approval, we were able to test DeCode across two different cohorts of students - second-year Mechatronics and Computer Systems engineering students who haven't been formally taught DSA yet, and Software engineering students who had been formally taught DSA in the previous semester. Students were invited to try DeCode and complete the questionnaire in their own time, in exchange for a chance to enter a raffle for a small prize.\par
-In the end, approximately 70 attempts were made at DeCode, of which 50 completed at least 
-\subsubsection{Questionnaire}
-
+In total, approximately 300 students were offered the opportunity to try DeCode. In the end, approximately 70 attempts were made at DeCode, of which 50 completed at least a few questions/tasks. 30 students answered our questionnaire.
+\subsubsection{Do students enjoy using DeCode?}
+In the free-form feedback in our questionnaire, students often noted that they enjoyed the game, especially the visual design/graphics. An example of some of the feedback we received;
+\begin{itemize}
+  \item ``The graphics were very cute. The quizzes were helpful too.''
+  \item ``I enjoyed the visual analogy of cars in a car park. The graphics were very cute and I liked how it was like an old school game.''
+  \item ``I enjoyed the visualisation of many of the ideas I have already been taught, it clarified how things actually worked (eg. with pop and push)''
+\end{itemize}
+In fact, of the 20 free-form comments we received, 16 of them noted that they enjoyed the game.\par
+When it came to the likert scale questions, we had 3 that were relevant to measuring students' enjoyment of DeCode, which are shown in Table \ref{tab:enjoytable}. Notably, we 77\% of students found that they enjoyed using DeCode as a learning tool. In general, we don't have any real reason to doubt these students' evaluation of their own enjoyment, so it's pretty safe to make the conclusion that, Yes, students enjoy using DeCode.\par
+We were able to identify two possible minor threats to validity for this conclusion: Firstly, our sample size of 30 students is relatively small (~10\% of total number of students the study was offered to), even if 30 is often claimed to be the magic cutoff for a statistically significant sample. The second potential threat to validity is selection bias - since students made their own decision as to whether to try DeCode or not, it's possible that the students who chose to take part in our study are more interested in educational games in general, thus giving us higher evaluation scores compared to had we randomly picked students from the cohort. This is unfortunately a limitation of our study design since it was impractical for us to force students to complete this.
+\subsubsection{Is DeCode educational?}
+\begin{table}[]
+  \begin{tabulary}{\linewidth}{|L|C|C|C|C|C|}
+  \hline
+  \textbf{Question}                                                                                                  & \textbf{Strongly Agree} & \textbf{Somewhat Agree} & \textbf{Neither} & \textbf{Somewhat Disagree} & \textbf{Strongly Disagree} \\ \hline
+  The app helped improve my understanding of Data Structure concepts                                                 & 30\% (33\%)             & 47\% (50\%)             & 7\% (17\%)       & 10\% (0\%)                 & 3\% (0\%)                  \\ \hline
+  Analogies used in the app helped me better understand the operation/usage of Data Structures                       & 50\% (50\%)             & 20\% (33\%)             & 20\% (17\%)      & 7\% (0\%)                  & 3\% (0\%)                  \\ \hline
+  The content covered by the app helped me in studying for the course                                                & 13\% (20\%)             & 10\% (20\%)             & 40\% (60\%)      & 10\% (0\%)                 & 7\% (0\%)                  \\ \hline
+  I found visualization to be a better approach to learning Data Structures compared to a purely code-based approach & 53\% (67\%)             & 17\% (17\%)             & 17\% (17\%)      & 3\% (0\%)                  & 10\% (0\%)                 \\ \hline
+  \end{tabulary}
+  \emph{Note: Values in brackets are from students who self-reported as having a very limited understanding of Data Structures.}
+  \caption{Questionnaire questions around educational value}
+  \label{tab:edutable}
+\end{table}
+% One student reported learning something new about stacks or something, even though they thought they were already knowledgeble.
+\subsection{Other findings}
 % Direct evidence of students getting better
 % Indirect evidence (level times speeding up?)
 % Threats to Validity
-% Selection bias - are we just targeting students who have a keen interest in edu games? Are these the struggling students we're worried about?
+% Selection bias - are we just targeting students who have a keen interest in edu games? Are these the struggling students we're worried about?\subsection{Findings}
 \section{Future Work}
 \subsection{Game}
 While our evaluation didn't identify any pressing issues that needed to be resolved with DeCode, it did identify a variety of smaller issues such as xxx. Fixing these issues would help refine DeCode into a more polished game, and would significantly improve the user experience.\par
