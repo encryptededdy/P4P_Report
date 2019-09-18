@@ -205,14 +205,39 @@ We were able to identify two possible minor threats to validity for this conclus
   \caption{Questionnaire questions around educational value}
   \label{tab:edutable}
 \end{table}
+\begin{table}[]
+  \begin{tabulary}{\linewidth}{|L|C|C|C|}
+  \hline
+  \textbf{Question}                                                                                                                   & \textbf{Student Improved} & \textbf{Student Worsened} & \textbf{No Change or Perfect} \\ \hline
+  Identifying swapped elements in pseudocode before and after playing an array swapping level                                         & 6                         & 5                         & 20                         \\ \hline
+  Identify possible performance improvements in an ArrayList implementation, after playing the ArrayList level                        & 7                         & 5                         & 3                          \\ \hline
+  Identify possible performance improvements in a Stack implementation, after being shown a visualisation of the Stack implementation & 4                         & 2                         & 10                         \\ \hline
+   \end{tabulary}
+   \emph{``Student improved'' is defined as answered question with less attempts than when the similar question was asked before the level, ``Student worsened'' is the opposite}
+  \caption{Data collected from in-game MCQs before and after certain levels}
+  \label{tab:edudatatable}
+\end{table}
 The likert scale questions related to educational value are shown in Table \ref{tab:edutable}. From this, we can see 77\% of students answered positively to the question of ``The app helped improve my understanding of Data Structure concepts'', and 70\% to the question of ``I found visualization to be a better approach to learning Data Structures compared to a purely code-based approach''. Interestingly, if we restrict ourselves to just looking at students who self-reported as having a very limited understanding of Data Structures, we find that these numbers go up to 83\% and 84\% respectively. This is promising, since that is the group of students that we're trying to target with DeCode self-assess DeCode as useful for their learning.\par
-A common criticism, however, is that students are unable to accurately self-assess their learning(TODO: Citation Needed), especially when they are comparing different learning methods. Therefore, we also investigated data collected in-game to try and determine whether students have improved. 
+Additionally we received quite a few pieces of free-form feedback from students that praised DeCode for teaching them something new. An example of some of this feedback;
+\begin{itemize}
+  \item ``From my learning of algorithm, it was a bit hard to get my head around the implementation of a data structure. So I particularly like the explanation of the array implementation of the queue. It is very easy to understand.''
+  \item ``I found list most effective(ly taught)! probably because it was the one I was least confident in my knowledge of, and I feel like the visual solidified my understanding of the concept.''
+  \item ``I personally found that how queues were taught was very good. I had never heard of LIFO or FIFO but it was very handy.''
+\end{itemize}
+A common criticism of educational tool evaluations, however, is that students are unable to accurately self-assess their learning(TODO: Citation Needed), especially when they are comparing different learning methods. Therefore, we also investigated data collected in-game to try and determine whether students have improved. As mentioned before, questions were asked before and after certain levels in an attempt to gauge whether students improved after playing the level, the results for which are shown in Table \ref{tab:edudatatable}. Unfortunately this data is very inconclusive - while it technically shows that more students improved than worsened after playing the game, the delta is too small to make any meaningful conclusion.\par
+We assume the reason for this inconclusive data is because our pre and post questions were not similar enough, so other variations in students' abilities could affect their accuracy. Questions were not made too similar to avoid students rote-learning the answer, since they were presented to the student in quick succession.\par
+The likert scale data collected here suffers from a similar threat to validity as defined above - namely the small sample size and a possible selection bias towards students who have a higher interest in educational games.
 % One student reported learning something new about stacks or something, even though they thought they were already knowledgeable.
 \subsection{Other findings}
-% Direct evidence of students getting better
-% Indirect evidence (level times speeding up?)
-% Threats to Validity
-% Selection bias - are we just targeting students who have a keen interest in edu games? Are these the struggling students we're worried about?\subsection{Findings}
+In addition to answering our evaluation questions, the data collected in our questionnaire and in-game statistics were useful in making a few other observations\dots
+\subsubsection{Common complaints}
+In our questionnaire, we collected free-form comments from students, some of which included suggestions for improvements or complaints. Here we collate some commonly shared complaints;
+\begin{itemize}
+  \item Instructions in the beginning are not clear, especially around how to use the DS operations
+  \item More competent students found the animations to be too slow, since they already knew what was happening
+  \item Levels should be ordered from shortest to longest, instead of vice-versa
+\end{itemize}
+\subsubsection{Feature Usage}
 \section{Future Work}
 \subsection{Game}
 While our evaluation didn't identify any pressing issues that needed to be resolved with DeCode, it did identify a variety of smaller issues such as xxx. Fixing these issues would help refine DeCode into a more polished game, and would significantly improve the user experience.\par
@@ -220,7 +245,8 @@ Another major upgrade would be to add new levels/data structures to DeCode to co
 \subsection{Evaluation}
 Due to time and resource constraints, we were regrettably unable to perform an evaluation on the scale that we would've liked. In the future, it would be good to perform an evaluation with a larger sample size (perhaps an entire class studying DSA), and collect better, more concrete, data on whether students learning outcomes are improved by using DeCode. This could be done in a few ways, such as implementing a pre and post-test, or analysing the pass rates of students who did and did not use DeCode, which was done by Mathrani et al\cite{mathrani} in a similar study. A full MEEGA\cite{Rafael} evaluation could also be introduced in order to allow for easier comparisons to be made between DeCode and other educational tools that have been evaluated with MEEGA.
 \section{Conclusion}
-
+//TODO
+% Address the research intent
 \begingroup
 
 \section*{References}
