@@ -1,4 +1,4 @@
-\documentclass[10pt]{article}
+\documentclass[11pt]{article}
 \usepackage{geometry}
 \usepackage{setspace}
 \usepackage{times}
@@ -33,7 +33,7 @@
 Draft 1, Thursday
 
 \noindent \textbf{ABSTRACT:} TODO!
-
+\newpage
 \section{Introduction}
 A solid understanding of Data Structures and Algorithms (DSA) is an important skill for any student in the field of Computer Science, since they underpin many of the fundamentals of Computer Science. However, as is the case with many conceptually demanding topics, students can find learning DSA challenging early on in their studies due to their inability to correlate DSA concepts with real-world objects and problems\cite{7600449}. Furthermore, the complexity of DSA means that some students may struggle to engage with the topic, thus requiring more motivation if they are to successfully learn it.\par
 Educational tools have often been proposed that either take advantage of Game-based Learning (GBL) to improve student motivation, or Algorithm Visualisation (AV) in order to help students better understand challenging concepts.\par
@@ -44,10 +44,12 @@ DeCode is a game-based learning tool for teaching introductory data structures s
 The research, implementation process and evaluation of DeCode will be discussed in this report, along with conclusions and possible future work.
 \section{Research Intent and Questions}
 Our primary goal is to understand how students' educational outcomes are affected by the integration of both AV and GBL in DeCode. We therefore want to address these two research questions;
+\begin{spacing}{1.5}
 \begin{enumerate}
   \item Does DeCode help improve students understanding of DSA concepts?
-  \item Is DeCode enjoyable and engaging for students to use (and thus students are more likely to remain motivated)?
+  \item Is DeCode enjoyable and engaging for students to use?
 \end{enumerate}
+\end{spacing}
 \section{Literature Review}
 \subsection{Algorithm Visualisation Techniques}
 One of the first techniques used to improve instruction of DSAs was Algorithm Visualisations. While these were originally limited to drawings on paper and blackboard, these eventually developed into software-generated interactive visualisations as early as 1984, with BALSA\cite{Brown:1984:SAA:964965.808596} as an early example of such. As development progressed, more user friendly visualisation tools were created, with most being freely distributed online as open source software, for use by educators around the world.\par
@@ -68,13 +70,8 @@ One of the most important steps of building an educational game is the evaluatio
 Most tools that teach basic DSA usually don't cover some intricacies of working with them, which can result in students being confused on concepts that might otherwise be regarded as basic. Izu, et al.\cite{izuloop} presents an example of students struggling with array manipulation and loop iterations where students are unable to recognise which direction they should loop in, in order to shift an array to the left or right. They conclude that this is the result of an unintentional oversight in course materials favouring upward loops.\par
 In Dale's online survey of computer science educators, he found that arrays and loops were 2 out of 3 of the major problem areas for novice CS students\cite{Dale:2006:MDT:1138403.1138432}. Additionally, many educators felt that students lacked sufficient problem solving skills to adequately tackle DSA problems.
 \section{Goals}
-In general, we had three broad goals during the development of DeCode;
-\begin{enumerate}
-  \item Teach introductory DSA concepts
-  \item Be an engaging tool for the user
-  \item Offer a highly visually-appealing visualisation
-\end{enumerate}
-Additionally, from our literature review, we were also able to identify ideas from multiple pieces of existing work that we would like to integrate into DeCode.
+In general, we had three broad goals during the development of DeCode: Teach introductory DSA concepts, be an engaging tool for the user, and offer a highly visually-appealing visualisation. Additionally, from our literature review, we were also able to identify ideas from multiple pieces of existing work that we would like to integrate into DeCode.
+\begin{spacing}{1.5}
 \begin{itemize}
   \item An \emph{interactive} algorithm visualisation with explanations, since they've been shown to be more useful to students\cite{vegh2}.
   \item Ask students DSA questions, and allow them to answer them by manipulating the visualisation, such as in TRAKLA2\cite{TRAKLA2}.
@@ -85,10 +82,11 @@ Additionally, from our literature review, we were also able to identify ideas fr
   \item Focus on arrays and loops at the beginning of the game, since Dale\cite{Dale:2006:MDT:1138403.1138432} identified that this was a possible problem area for novice students.
   \item Evaluate using MEEGA\cite{meegaPlus}, so that we're using a common evaluation model for our game, in order to make it easier to compare our results with other results.
 \end{itemize}
+\end{spacing}
 \section{Analogy/Metaphor}
 \begin{figure}
   \centering
-  \includegraphics[width=0.75\textwidth]{images/helpanalogy.png}
+  \includegraphics[width=0.5\textwidth]{images/helpanalogy.png}
 \caption{Help screen explaining our analogy}
 \label{fig:helpanalogy}
 \end{figure}
@@ -105,20 +103,20 @@ The final issue that we identified was how we would deal with copying of values 
 \subsection{Design}
 \begin{figure}
   \centering
-  \includegraphics[width=0.5\textwidth]{images/seasons.png}
+  \includegraphics[width=0.8\textwidth]{images/seasons.png}
 \caption{4 seasons for the 4 levels in DeCode}
 \label{fig:seasons}
 \end{figure}
-\begin{figure}
-  \centering
-  \includegraphics[width=0.45\textwidth]{images/kenneysample.png}
-  \includegraphics[width=0.45\textwidth]{images/mainmenu.png}
-\caption{Left: Sample assets from Kenney's pack, Right: Our main menu UI}
-\label{fig:designstuff}
-\end{figure}
+% \begin{figure}
+%   \centering
+%   \includegraphics[width=0.4\textwidth]{images/kenneysample.png}
+%   \includegraphics[width=0.4\textwidth]{images/mainmenu.png}
+% \caption{Left: Sample assets from Kenney's pack, Right: Our main menu UI}
+% \label{fig:designstuff}
+% \end{figure}
 One of the main goals of DeCode was to design a highly visually appealing visualisation, in order to draw users in and differentiate our visualisation from other, more standard, 2D visualisations. One of the best ways to achieve a high quality visualisation would be to use custom 3D models for our analogies, however we this would've been impractical given the time constraints we were under. Instead, we elected to use existing city assets from Kenney's Isometric City Pack\cite{KenneyAssets}. This asset pack offered most of the assets that we needed for our analogy (city buildings, streets, parking spaces and cars) with a consistent design across them. The assets that weren't available (such as labelled trucks for sorting and indexed parking spaces) were created manually by us, with care taken to ensure they match the design of the Kenney pack.\par
 To visually separate each of the 4 data structures we were introducing, each data structure has its own seasonal themed variation on the normal assets. Figure \ref{fig:seasons} shows the design of DeCode across all four seasons (data structures).\par
-UI design was also done by us, with the goal of trying to match the design of the Kenney pack as much as possible. A comparison can be see in Figure \ref{fig:designstuff}. Another primary consideration in our UI design was to ensure all UI elements would be usable on a touch device, should a user choose to test our game on such a device. This meant things like array index selection would need to be designed as drop down boxes instead of text boxes, since popping up a keyboard results in a poor touch experience. We also made sure that all buttons were of sufficient size for touch interaction.
+UI design was also done by us, with the goal of trying to match the design of the Kenney pack as much as possible. Another primary consideration in our UI design was to ensure all UI elements would be usable on a touch device, should a user choose to test our game on such a device. This meant things like array index selection would need to be designed as drop down boxes instead of text boxes, since popping up a keyboard results in a poor touch experience. We also made sure that all buttons were of sufficient size for touch interaction.
 \subsection{Technology}
 Due to time and cost constraints when developing DeCode, achieving the highest possible technical quality was not a priority in our game. Instead, our choice of technology was largely determined by existing familiarity and cost. With that in mind, we chose to use the Unity game engine\cite{technologies} combined with the Ultimate Isometric Toolkit\cite{isometricToolkit} library - this offered us most of the tools we needed to design our game, with strong existing documentation and 2.5D game support. We were also already familiar with Unity, so we needed less time to get up to speed with the tooling. Unity also supports WebGL deployment, which means DeCode can run in-browser without users having to download anything. Additionally, both of these tools are free (Unity, for non-commercial use) or low cost (Ultimate Isometric Toolkit).\par
 % TODO: Do we talk about NodeJS? Not sure if it's relevant.
@@ -129,7 +127,7 @@ Arrays are depicted as a simple carpark of a fixed size, with an extra park repr
 \subsection{ArrayLists}
 \begin{figure}
   \centering
-  \includegraphics[width=0.7\textwidth]{images/listcopy.png}
+  \includegraphics[width=0.5\textwidth]{images/listcopy.png}
 \caption{Cars in the middle of being copied to a larger internal array}
 \label{fig:listcopy}
 \end{figure}
@@ -143,18 +141,19 @@ Stacks, being another ADT, are also introduced in a similar way to Queues - firs
 \section{Gameplay Features / User Interface}
 \begin{figure}
   \centering
-  \includegraphics[width=0.75\textwidth]{images/annotatedelements.png}
+  \includegraphics[width=0.95\textwidth]{images/annotatedelements.png}
 \caption{Annotated view of the gameplay features}
 \label{fig:annotatedelements}
 \end{figure}
-\begin{figure}
-  \centering
-  \includegraphics[width=0.48\textwidth]{images/help.png}
-  \includegraphics[width=0.48\textwidth]{images/quiz.png}
-\caption{The help and quiz pop-up screens}
-\label{fig:helpquiz}
-\end{figure}
+% \begin{figure}
+%   \centering
+%   \includegraphics[width=0.48\textwidth]{images/help.png}
+%   \includegraphics[width=0.48\textwidth]{images/quiz.png}
+% \caption{The help and quiz pop-up screens}
+% \label{fig:helpquiz}
+% \end{figure}
 The majority of the game has a interface similar to that shown in Figure \ref{fig:annotatedelements}. The annotated elements do the following\dots
+\begin{spacing}{1.5}
 \begin{enumerate}
   \item Shows the user their current game ID, used to track their progress for the evaluation (more in the Evaluation section).
   \item The code view allows the user to see a pseudocode representation of the operations that they have done, so that they can better relate the visualisation with code.
@@ -162,19 +161,22 @@ The majority of the game has a interface similar to that shown in Figure \ref{fi
   \item Operations supported by the current data structure are shown here, and users can select the index(es) to perform the given operation on. Generally, not all operations are shown at once since they are gradually introduced to the user
   \item The visualisation is shown in the centre of the screen. When the task is introducing something to the user, the visualisation automatically zooms in to focus on what's being shown.
 \end{enumerate}
-In addition to these elements, DeCode also shows help screens that give users a general introduction to a given data structure, and has quiz screens to ask users specific multi-choice questions, both of which are shown in Figure \ref{fig:helpquiz}.
+\end{spacing}
+In addition to these elements, DeCode also shows help screens that give users a general introduction to a given data structure, and has quiz screens to ask users specific multi-choice questions.
+% , both of which are shown in Figure \ref{fig:helpquiz}.
 \section{Evaluation}
 \subsection{Design}
 In evaluating DeCode, we aimed to answer two main questions, which are related to our research intent - do students enjoy using DeCode, and, if so, is it actually educational?. In order to answer the first question, we rely on a questionnaire answered by students since they have a accurate self-judgement on whether they enjoyed the game or not. For the second question, we rely on a combination of questionnaire answers and in-game data collection, since it's been identified that students have a limited ability to self-assess their learning\cite{Battistella}.
 \subsubsection{In-Game}
 As students play through our game, data is collected about how long they take to play through each level, what operations they use to perform each task, and how many attempts they take to answer the various multi-choice questions that are displayed. While these statistics are useful in allowing us to know how students are thinking about questions (by looking at their order of operations) or what questions they're struggling on, they don't directly answer our questions about whether DeCode actually offers educational value.\par
-In order to help us determine whether students have actually learned anything, we added additional questions into the game where students are asked about similar concepts before and after the game introduces the concept to them. As an example, we asked students to identify the purpose of a piece of swapping code (derived from Teague's work\cite{Teague:2012:SHW:2483716.2483727}) before we introduce the concept to them in the game. We then ask the same question again, except with slightly different naming, afterwards. We intend for this to show possible improvement in knowledge from the student being introduced to the concept in-game. We were unfortunately unable to ask too many of these questions, as we feared it would make the game feel like a test. These questions do, however, introduce a few threats to validity, which we will discuss later.
+In order to help us determine whether students have actually learned anything, we added additional questions into the game where students are asked about similar concepts before and after the game introduces the concept to them. As an example, we asked students to identify the purpose of a piece of swapping code (derived from Teague's work\cite{Teague:2012:SHW:2483716.2483727}) before we introduce the concept to them in the game. We then ask the same question again, except with slightly different naming, afterwards. We intend for this to show possible improvement in knowledge from the student being introduced to the concept in-game.
 \subsubsection{Questionnaire}
 The primary objective of the questionnaire is to collect data on user's experiences using DeCode, and specifically whether it improves students' motivation by being enjoyable and engaging to use. The original intention was to design our questionnaire around MEEGA\cite{Rafael}\cite{meegaPlus} (more in Section \ref{meegalitrev}), which is designed to measure the user experience and educational value of educational games. However when designing our questionnaire we found that MEEGA (and its sequel, MEEGA2) would take too long for students to answer, and thus result in us getting a reduced response rate to our questionnaire. This is because MEEGA is designed for studies where students must complete the study as part of their course, whereas our study involves students volunteering their own time to participate.\par
 In the end, our questionnaire was based around a subset of MEEGA, with most of the questions pertaining to how the students felt about the user experience, and some questions about specific features in the game to gauge their individual usefulness (e.g. the code view or the MCQs).
 % TODO: Unfinished!
 \subsection{Results and Discussion}
 \begin{table}[]
+  \small
   \begin{tabulary}{\linewidth}{|L|C|C|C|C|C|}
   \hline
   \textbf{Question}                                                                                                  & \textbf{Strongly Agree} & \textbf{Somewhat Agree} & \textbf{Neither} & \textbf{Somewhat Disagree} & \textbf{Strongly Disagree} \\ \hline
@@ -189,16 +191,19 @@ With human ethics and HoD approval, we were able to test DeCode across two diffe
 In total, approximately 300 students were offered the opportunity to try DeCode. In the end, approximately 70 attempts were made at DeCode, of which 50 completed at least a few questions/tasks. 30 students answered our questionnaire.
 \subsubsection{Do students enjoy using DeCode?}
 In the free-form feedback in our questionnaire, students often noted that they enjoyed the game, especially the visual design/graphics. An example of some of the feedback we received;
+\begin{spacing}{1.5}
 \begin{itemize}
   \item ``The graphics were very cute. The quizzes were helpful too.''
   \item ``I enjoyed the visual analogy of cars in a car park. The graphics were very cute and I liked how it was like an old school game.''
   \item ``I enjoyed the visualisation of many of the ideas I have already been taught, it clarified how things actually worked (eg. with pop and push)''
 \end{itemize}
+\end{spacing}
 In fact, of the 20 free-form comments we received, 16 of them noted that they enjoyed the game.\par
 When it came to the likert scale questions, we had 3 that were relevant to measuring students' enjoyment of DeCode, which are shown in Table \ref{tab:enjoytable}. Notably, we 77\% of students found that they enjoyed using DeCode as a learning tool. In general, we don't have any real reason to doubt these students' evaluation of their own enjoyment, so it's pretty safe to make the conclusion that, Yes, students enjoy using DeCode.\par
 We were able to identify two possible minor threats to validity for this conclusion: Firstly, our sample size of 30 students is relatively small (~10\% of total number of students the study was offered to), even if 30 is often claimed to be the magic cutoff for a statistically significant sample. The second potential threat to validity is selection bias - since students made their own decision as to whether to try DeCode or not, it's possible that the students who chose to take part in our study are more interested in educational games in general, thus giving us higher evaluation scores compared to had we randomly picked students from the cohort (more on this in Section \ref{studycohort}).
 \subsubsection{Is DeCode educational?}
 \begin{table}[]
+  \small
   \begin{tabulary}{\linewidth}{|L|C|C|C|C|C|}
   \hline
   \textbf{Question}                                                                                                  & \textbf{Strongly Agree} & \textbf{Somewhat Agree} & \textbf{Neither} & \textbf{Somewhat Disagree} & \textbf{Strongly Disagree} \\ \hline
@@ -212,6 +217,7 @@ We were able to identify two possible minor threats to validity for this conclus
   \label{tab:edutable}
 \end{table}
 \begin{table}[]
+  \small
   \begin{tabulary}{\linewidth}{|L|C|C|C|}
   \hline
   \textbf{Question}                                                                                                                   & \textbf{Student Improved} & \textbf{Student Worsened} & \textbf{No Change or Perfect} \\ \hline
@@ -225,23 +231,28 @@ We were able to identify two possible minor threats to validity for this conclus
 \end{table}
 The likert scale questions related to educational value are shown in Table \ref{tab:edutable}. From this, we can see 77\% of students answered positively to the question of ``The app helped improve my understanding of Data Structure concepts'', and 70\% to the question of ``I found visualization to be a better approach to learning Data Structures compared to a purely code-based approach''. Interestingly, if we restrict ourselves to just looking at students who self-reported as having a very limited understanding of Data Structures, we find that these numbers go up to 83\% and 84\% respectively. This is promising, since that is the group of students that we're trying to target with DeCode self-assess DeCode as useful for their learning.\par
 Additionally we received quite a few pieces of free-form feedback from students that praised DeCode for teaching them something new. An example of some of this feedback;
+\begin{spacing}{1.5}
 \begin{itemize}
   \item ``From my learning of algorithm, it was a bit hard to get my head around the implementation of a data structure. So I particularly like the explanation of the array implementation of the queue. It is very easy to understand.''
   \item ``I found list most effective(ly taught)! probably because it was the one I was least confident in my knowledge of, and I feel like the visual solidified my understanding of the concept.''
   \item ``I personally found that how queues were taught was very good. I had never heard of LIFO or FIFO but it was very handy.''
 \end{itemize}
-A common criticism of educational tool evaluations, however, is that students are unable to accurately self-assess their learning(TODO: Citation Needed), especially when they are comparing different learning methods. Therefore, we also investigated data collected in-game to try and determine whether students have improved. As mentioned before, questions were asked before and after certain levels in an attempt to gauge whether students improved after playing the level, the results for which are shown in Table \ref{tab:edudatatable}. Unfortunately this data is very inconclusive - while it technically shows that more students improved than worsened after playing the game, the delta is too small to make any meaningful conclusion.\par
+\end{spacing}
+% TODO: Citation needed?
+A common criticism of educational tool evaluations, however, is that students are unable to accurately self-assess their learning, especially when they are comparing different learning methods. Therefore, we also investigated data collected in-game to try and determine whether students have improved. As mentioned before, questions were asked before and after certain levels in an attempt to gauge whether students improved after playing the level, the results for which are shown in Table \ref{tab:edudatatable}. Unfortunately this data is very inconclusive - while it technically shows that more students improved than worsened after playing the game, the delta is too small to make any meaningful conclusion.\par
 We assume the reason for this inconclusive data is because our pre and post questions were not similar enough, so other variations in students' abilities could affect their accuracy. Questions were not made too similar to avoid students rote-learning the answer, since they were presented to the student in quick succession.\par
 The likert scale data collected here suffers from a similar threat to validity as defined above - namely the small sample size and a possible selection bias towards students who have a higher interest in educational games.
 \subsection{Other findings}
 In addition to answering our evaluation questions, the data collected in our questionnaire and in-game statistics were useful in making a few other observations\dots
 \subsubsection{Common complaints}
 In our questionnaire, we collected free-form comments from students, some of which included suggestions for improvements or complaints. Here we collate some commonly shared complaints;
+\begin{spacing}{1.5}
 \begin{itemize}
   \item Instructions in the beginning are not clear, especially around how to use the DS operations
   \item More competent students found the animations to be too slow, since they already knew what was happening
   \item Levels should be ordered from shortest to longest, instead of vice-versa
 \end{itemize}
+\end{spacing}
 \subsubsection{Feature Usefulness}
 Our questionnaire also asked questions about the usefulness of various features in DeCode. We found that 70\% responded positively in regards to usefulness about analogies, 50\% about the code view, 60\% about the user interface and 77\% about the (MCQ) quiz questions. The feedback about the code view and quiz questions was surprising, since we didn't expect it to be so low and high respectively.\par
 Our best guess is that students didn't discover the code view since it was only visible as a tab on the side of the screen, and there was no motivation to open/use it. One could finish the entire game without using it.\par
@@ -266,8 +277,11 @@ It would also be useful to expand the content covered by DeCode in existing leve
 \subsection{Evaluation}
 While we were unable to perform a large-scale evaluation in this paper, a future evaluation with a larger sample size (perhaps an entire class studying DSA) would allow us to collect better, more concrete data on whether students learning outcomes are improved by using DeCode. This could be done in a few ways, such as implementing a pre and post-test, or analysing the pass rates of students who did and did not use DeCode, which was done by Mathrani et al\cite{mathrani} in a similar study. A full MEEGA\cite{Rafael} evaluation could also be introduced in order to allow for easier comparisons to be made between DeCode and other educational tools that have been evaluated with MEEGA.
 \section{Conclusion}
-//TODO
-% Address the research intent
+From our evaluation and research, DeCode seems to have promising potential as an addition to the field of DSA education. Feedback from our target user base shows that DeCode is enjoyable and engaging for the students. Students also expressed that they found DeCode to be useful for improving their understanding of DSA concepts, even if we weren't able to empirically prove this with measurements.\par
+When we look back to the two research questions we established before developing DeCode, we can now answer both. Yes, DeCode is enjoyable and engaging for students to use, and, yes, DeCode can help improve students understanding of DSA concepts, at least by self-assessment.\par
+With some future work polishing up some of the quality-of-life features and bugs, we hope that DeCode will soon be able to be used as a powerful DSA education tool by students and educators alike.
+
+% TODO: Acknowledgements, if space allows.
 \begingroup
 
 \section*{References}
